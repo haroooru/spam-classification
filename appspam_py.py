@@ -13,12 +13,16 @@ import string
 import nltk
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
+from nltk.data import find
 
-nltk.download('punkt')  # Punkt tokenizer for word_tokenize
-nltk.download('stopwords')  # Stopwords data
-
-nltk.download('punkt')
-nltk.download('stopwords')
+# Ensure required NLTK data is downloaded
+try:
+    # Try to find the punkt tokenizer
+    find('tokenizers/punkt')
+except LookupError:
+    # Download punkt and stopwords if not found
+    nltk.download('punkt')
+    nltk.download('stopwords')
 
 ps = PorterStemmer()
 
@@ -32,8 +36,8 @@ def preprocess_text(text):
     return " ".join(processed_words)
 
 # Load the TF-IDF vectorizer and trained model
-vectorizer = joblib.load('tfidf_vectorizer.joblib')  # Corrected the path
-model = joblib.load('mb_model.joblib')  # Corrected the path
+vectorizer = joblib.load('/content/tfidf_vectorizer.joblib')  # Update path if needed
+model = joblib.load('/content/mb_model.joblib')  # Update path if needed
 
 st.title("Email Spam Classifier")
 st.write("Enter the email content below to classify it as Spam or Not Spam.")
