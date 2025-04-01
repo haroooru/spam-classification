@@ -54,7 +54,4 @@ if st.button('Classify'):
     else:
         st.warning("Please enter the email content to classify.")
 
-git add appspam.py
-git commit -m "Fixed model loading paths"
-git push origin main  # or the branch you're working on
 
