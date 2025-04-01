@@ -7,8 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1OrstA2Bz2Lr7q00FpXqz8Sjf22jsibtV
 """
 
-
-
 import streamlit as st
 import joblib
 import string
@@ -31,8 +29,8 @@ def preprocess_text(text):
     return " ".join(processed_words)
 
 # Load the TF-IDF vectorizer and trained model
-vectorizer = joblib.load('/content/tfidf_vectorizer.joblib')
-model = joblib.load('/content/mb_model.joblib')
+vectorizer = joblib.load('tfidf_vectorizer.joblib')  # Corrected the path
+model = joblib.load('mb_model.joblib')  # Corrected the path
 
 st.title("Email Spam Classifier")
 st.write("Enter the email content below to classify it as Spam or Not Spam.")
