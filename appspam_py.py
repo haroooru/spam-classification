@@ -53,3 +53,8 @@ if st.button('Classify'):
             st.success("This email is classified as Not Spam.")
     else:
         st.warning("Please enter the email content to classify.")
+
+git add appspam.py
+git commit -m "Fixed model loading paths"
+git push origin main  # or the branch you're working on
+
