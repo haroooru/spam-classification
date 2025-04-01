@@ -35,9 +35,9 @@ def preprocess_text(text):
     processed_words = [ps.stem(word) for word in words if word.isalnum() and word not in stopwords.words('english')]
     return " ".join(processed_words)
 
-# Load the TF-IDF vectorizer and trained model
-vectorizer = joblib.load('/content/tfidf_vectorizer.joblib')  # Update path if needed
-model = joblib.load('/content/mb_model.joblib')  # Update path if needed
+# Load the TF-IDF vectorizer and trained model from the current directory
+vectorizer = joblib.load('tfidf_vectorizer.joblib')  # Corrected file path
+model = joblib.load('mb_model.joblib')  # Corrected file path
 
 st.title("Email Spam Classifier")
 st.write("Enter the email content below to classify it as Spam or Not Spam.")
