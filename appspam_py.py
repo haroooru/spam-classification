@@ -14,6 +14,9 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 
+nltk.download('punkt')  # Punkt tokenizer for word_tokenize
+nltk.download('stopwords')  # Stopwords data
+
 nltk.download('punkt')
 nltk.download('stopwords')
 
