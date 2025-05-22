@@ -42,8 +42,13 @@ The dataset contains labeled emails with two categories:
 [Click here to access the app](#) *(https://spam-classification29.streamlit.app/)*
 ## Web App Link
 
-## Results
-- Training Accuracy: **96.23%**
+
+Performance Metrics (on test data)
+Metric	Value
+Accuracy	~98%
+Precision	~96–99%
+Recall	~95–98%
+F1-Score	~97%
 
 
 
