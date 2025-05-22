@@ -1,62 +1,103 @@
-# Email Spam Classification - Streamlit App
+
+
+# 📩 Email Spam Classification - Streamlit App
 
 This project is a binary classification system that detects whether an email message is **spam** or **not spam** using a trained machine learning model. It also includes a simple web interface using **Streamlit** for user interaction.
 
 ---
 
-##  Dataset Description
+## 📚 Dataset Description
 
 The dataset used is the **SMS Spam Collection Dataset** from UCI, available on Kaggle:
-https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset
+🔗 [https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset](https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset)
 
-- It contains over 5,000 SMS messages labeled as "ham" (not spam) or "spam".
-- Only the `v1` (label) and `v2` (message) columns are used.
-- The labels are converted into binary format: 0 for ham, 1 for spam.
+* Contains 5,574 SMS messages.
+* Columns used:
 
----
+  * `v1`: Label (`ham` or `spam`)
+  * `v2`: Message text
+* Labels converted to:
 
-## Preprocessing Steps
-
-1. Convert all text to lowercase.
-2. Remove numbers and punctuation.
-3. Apply **TF-IDF vectorization** to convert text into numerical features.
+  * `0`: Ham (Not Spam)
+  * `1`: Spam
 
 ---
 
-##  Model Used
+## 🛠️ Preprocessing Steps
 
-- **Multinomial Naive Bayes Classifier**
-- Chosen for its effectiveness with text classification problems.
-- Trained using an 80-20 train-test split.
-
----
-
-## Performance Metrics
-
-- Accuracy: ~97% on the test set
-- Evaluated using:
-  - Accuracy Score
-  - Precision, Recall, F1 Score (via Classification Report)
+1. Convert text to **lowercase**
+2. Remove **numbers** and **punctuation**
+3. Apply **TF-IDF Vectorization** for feature extraction
 
 ---
 
-##  Streamlit Web App
+## 🤖 Model Used
 
-The `app.py` file creates a Streamlit UI where users can input their own message and classify it instantly as spam or not spam.
-
-### Files Included:
-
-- `train_model.py` - script to train and save the model
-- `app.py` - Streamlit interface
-- `spam_classifier.pkl` - trained ML model
-- `tfidf_vectorizer.pkl` - saved TF-IDF vectorizer
-- `requirements.txt` - list of Python dependencies
+* **Multinomial Naive Bayes**
+* Suitable for discrete text-based features
+* Trained on 80% of the dataset and tested on the remaining 20%
 
 ---
 
-## How to Run
+## 📈 Model Performance Summary
 
-1. Install dependencies:
+### 🔧 Training Set:
+
+* **Accuracy:** 98%
+
+### 🧪 Test Set:
+
+* **Accuracy:** 95.07%
+* **Precision / Recall / F1-score:**
+
+| Class | Precision | Recall | F1-score |
+| ----- | --------- | ------ | -------- |
+| Ham   | 0.95      | 1.00   | 0.97     |
+| Spam  | 1.00      | 0.63   | 0.78     |
+
+* **Macro Avg F1-score:** 0.87
+* **Weighted Avg F1-score:** 0.95
+
+### ✅ Generalization:
+
+* Very small gap between train and test performance
+* Slight drop in spam recall indicates some spam missed
+* Model is **not overfitting**
+
+---
+
+## 🖥️ Streamlit Web App
+
+The `app.py` file provides a web UI for testing messages. Users can enter a message and check if it's classified as **spam** or **not spam**.
+
+---
+
+## 📁 Files Included
+
+* `train_model.py` – Training script that saves the model and vectorizer
+* `app.py` – Streamlit UI for deployment
+* `spam_classifier.pkl` – Trained model
+* `tfidf_vectorizer.pkl` – TF-IDF vectorizer
+* `requirements.txt` – Python dependencies
+* `README.txt` – This documentation
+
+---
+
+## ▶️ How to Run the Project
+https://spam-classification29.streamlit.app/
+
+### 1. Install Requirements
+
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Run Streamlit App
+
+```bash
+streamlit run app.py
+
+
 
 
 
