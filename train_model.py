@@ -35,6 +35,21 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 model = MultinomialNB()
 model.fit(X_train, y_train)
 
+# Predict on training set
+y_train_pred = model.predict(X_train)
+
+# Evaluate training performance
+print("\n--- Training Set Performance ---")
+print("Accuracy:", accuracy_score(y_train, y_train_pred))
+print("Classification Report:\n", classification_report(y_train, y_train_pred))
+
+# Evaluate test performance
+y_test_pred = model.predict(X_test)
+print("\n--- Test Set Performance ---")
+print("Accuracy:", accuracy_score(y_test, y_test_pred))
+print("Classification Report:\n", classification_report(y_test, y_test_pred))
+
+
 # 7. Evaluate Model
 y_pred = model.predict(X_test)
 print("Accuracy:", accuracy_score(y_test, y_pred))
